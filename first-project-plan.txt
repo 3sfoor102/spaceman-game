@@ -1,4 +1,4 @@
-- The game: Concentration (memory game)
+- The game: Spaceman
 
 - Variables: CurrentPlayer, Win, gameTimeout
 - Data structures: hold a set of items, either letters, shapes, or images, etc. 
