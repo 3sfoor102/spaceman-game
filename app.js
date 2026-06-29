@@ -9,7 +9,7 @@
 // current word the user trying to guess and the actual word
 let wordList = ['apple', 'orange', 'banana', 'mango', 'watermelon', 'grape', 'cherry', 'Strawberry']
 let guessedWord = [] // maybe I need to define it inside a specific function to avoid saving globally
-let secretWord = ['apple'] //[randomWord(wordList)] // this variable saves the result of the randomWord() and it saves it specifically in an array, so it can be compared later on
+let secretWord = [randomWord(wordList)] //[randomWord(wordList)] // this variable saves the result of the randomWord() and it saves it specifically in an array, so it can be compared later on
 let pressedKey = ['a']
 let correctLetter = false
 let lives = 6
@@ -26,6 +26,7 @@ const ulLettersEl = document.querySelector('.output-letters')
 const liEls = document.createElement('li')
 
 
+console.log(secretWord)
 // This brings the keyboard letters from the html page
 // We use forEach to iterate in all the letters that are in "letters" class
 // Then we add an event listner to see and save which letter the user have clicked
@@ -46,8 +47,7 @@ lettersBtns.forEach(function (button) {
 
     })
 })
-// console.log(guessedWord)
-// console.log(secretWord[0][0])
+
 
 
 
@@ -60,6 +60,8 @@ lettersBtns.forEach(function (button) {
 // Where I only need to add the list name 
 // and the function will give me a random item from the list,
 // which is a word
+        console.log(secretWordLettersArray)
+
 function randomWord(listName) {
     let randomIndex = Math.floor(Math.random() * listName.length)
     return listName[randomIndex]
@@ -67,23 +69,20 @@ function randomWord(listName) {
     // after generating the random number and saving it inside "randomIndex" variable we are just using it with the array to pick a random word
     // it is like we are typing wordList[0] (for example the result is "Mango"), instead of a fixed number now the random function will change this to different numbers for example (wordList[2], which will give "banana")
 }
-// console.log(randomWord(wordList))
 seprateSeceretLetters()
 function createWordOutput() {
     for (let i = 0; i < secretWordLettersArray.length; i++) {
         ulDashesEl.append(liEls.textContent = '___ ')
     }
-    // # I should place seprateSeceretLetters() --> Invoke, then
-    // # I should invoke createWordOutput(), because first I will know the letters, then I can compare them
-    // # Each letter should be placed at the same location of its location in the original array
-    // # If the letter is 'l', and the seceretWord is  apple, the letter should
-    // # be placed at index 3, and it showed be shown at index 3 in the screen 
     lettersBtns.forEach(function (button) {
         button.addEventListener('click', function (event) {
-            if (event.target.textContent === secretWordLettersArray[0]) {
-                ulLettersEl.append(liEls.textContent = event.target.textContent + ' ')
-                console.log('GOOD')
+            for (let i = 0; i < secretWordLettersArray.length; i++) {
+                if (event.target.textContent === secretWordLettersArray[i]) {
+                    ulLettersEl.append(liEls.textContent = event.target.textContent + ' ')
+                    console.log('GOOD')
+                }
             }
+
         })
     })
 
@@ -116,7 +115,16 @@ console.log(secretWordLettersArray)
 
 
 
+// =============================== PSEUDOCODE START =====================================
+// I should place seprateSeceretLetters() --> Invoke, then
+// I should invoke createWordOutput(), because first I will know the letters, then I can compare them
+// Each letter should be placed at the same location of its location in the original array
+// If the letter is 'l', and the seceretWord is  apple, the letter should
+// be placed at index 3, and it showed be shown at index 3 in the screen
 
+
+
+// =============================== PSEUDOCODE END =====================================
 
 
 
