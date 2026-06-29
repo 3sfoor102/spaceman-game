@@ -9,16 +9,20 @@
 // current word the user trying to guess and the actual word
 let wordList = ['apple', 'orange', 'banana', 'mango', 'watermelon', 'grape', 'cherry', 'Strawberry']
 let guessedWord = [] // maybe I need to define it inside a specific function to avoid saving globally
-let secretWord = ['apple'] //[randomWord(wordList)] // this variable saves the result of the randomWord() and it saves it specifically in an array, so it can be compared later on
-let pressedKey = []
+let secretWord = ['banana'] //[randomWord(wordList)] // this variable saves the result of the randomWord() and it saves it specifically in an array, so it can be compared later on
+let pressedKey = ['a']
 let correctLetter = false
+let lives = 6
 let playing = false
 let winner = false
-// let allKeboardKeys = []
+let secretWordLettersArray = []
+
 
 
 /*------------------------ Cached Element References ------------------------*/
 const lettersBtns = document.querySelectorAll('.letters')
+const ulEl = document.querySelector('.output')
+const wordEls = document.createElement('li')
 
 
 // This brings the keyboard letters from the html page
@@ -28,19 +32,21 @@ const lettersBtns = document.querySelectorAll('.letters')
  
 lettersBtns.forEach(function(button){
 button.addEventListener('click', function(event){
-        // console.log(bevent.target.textContent)
-        guessedWord.push(button.textContent)
-        // if (pressedKey[0] === secretWord[0][0]) {
-        //     pressedKey.push(event.target.textContent)
-        //     console.log(guessedWord[0])
-        // }
-                // console.log(guessedWord[4])
-console.log(guessedWord)
+    // this for loop go over the selected word, the randoWord,
+    // and it goes over each letter in it, to compare it with letters
+    // entered by the user
+    // for (let i = 0; i < secretWord.length; i++) {
+    //     for (let j = 0; j < secretWord[i].length; j++) {
+    //          console.log(secretWord[i][j])
+    //     }
+    //     // if (pressedKey[0] === secretWord[0][])
+    //     // guessedWord.push(button.textContent)
+    // }
 
     })
 })
-
-console.log(secretWord[0][0])
+// console.log(guessedWord)
+// console.log(secretWord[0][0])
 
 
 
@@ -62,31 +68,53 @@ function randomWord(listName){
 }
 // console.log(randomWord(wordList))
 
+function createWordOutput () {
+    for (let i = 0; i < secretWord.length; i++) {
+        wordEls.textContent = '___'
+        ulEl.append(wordEls)
+    }
+  
+}
+
+// seprateSeceretLetters is used to seperate the full random word
+// and it saves each letter in it  
+function seprateSeceretLetters () {
+    for (let i = 0; i < secretWord.length; i++) {
+    for (let j = 0; j < secretWord[i].length; j++) {
+        secretWordLettersArray.push(secretWord[i][j])
+        }
+    }
+}
+
+    seprateSeceretLetters()
+    console.log(secretWordLettersArray)
+    console.log(secretWordLettersArray.length)
+
+let array = ["b",
+    "a",
+    "n",
+    "a",
+    "n",
+    "a"]
 
 
+// for (let i = 0; i < seprateSeceretLetters.length; i++) {
+//         if (secretWordLetters[i] === array[i]) {
+//         console.log('true')
 
-// I made a crucial logical error, where I wanted to check if the gussedWord array content is identical to the content of a specific random word, if it is I want it to print the letters of the gussedWord, however here I have added the randomWord function inside the loop itself, so, assuming the random word at first iteration is "apple" in the second iteration when the loop runs again the word will be already changed, since it is not saved, it is just calling the function each time I run the loop, for example, it might pick another word from the array list like "mango"
-
-// for (let i =0; i<secretWord.length;i++)
-// {
-//     for (let j=0; j<secretWord[i].length; j++)
-//         if (secretWord[i][j]=== pressedKey[0])
-//         guessedWord.push(pressedKey[i])
-//         console.log(guessedWord[i])
-
-// }
-
-// for (let i = 0; guessedWord.length; i++){
-//     for (let j=0; j<guessedWord[i].length; j++)
-//     {
-//         // console.log(guessedWord[i])
-//         console.log(savedWord[i][j])
-        
 //         }
-//         // guessedWord[i].push(j)
 //     }
 
 
+
+
+
+
+
+
+
+
+// =============================== DEAD CODE =====================================
 // // WORKING 
 // lettersBtns.forEach(function(button){
 // button.addEventListener('click', function(event){
@@ -103,3 +131,7 @@ function randomWord(listName){
 // })
 
 // console.log(secretWord[0][0])
+
+
+
+// ====================================================================

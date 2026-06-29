@@ -24,3 +24,10 @@ body {
     background-color: black;
     color: white ;
 }
+
+.output {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    
+}
