@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    /* display: flex; */
+}
+.keyboard-btns{
+    display: flex;
+    flex-direction: rever;
+    justify-content: center;
+    align-items: flex-end;
+    /* flex-direction: row; */
+    /* align-content: center; */
+}
+.letters {
+    background-color: black;
+    color: white ;
+}
+
+#reset-btn {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background-color: black;
+    color: white ;
+}
