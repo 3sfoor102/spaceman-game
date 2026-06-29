@@ -24,7 +24,8 @@ const lettersBtns = document.querySelectorAll('.letters')
 const ulDashesEl = document.querySelector('.output-dashes')
 const ulLettersEl = document.querySelector('.output-letters')
 const liEls = document.createElement('li')
-
+const imgEls = document.querySelector('.images')
+// imgEls.classList.replace('images', 'removeImage')
 
 console.log(secretWord)
 // This brings the keyboard letters from the html page

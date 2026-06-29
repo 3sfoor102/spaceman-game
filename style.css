@@ -11,13 +11,13 @@ body, html {
 h1 {
     color: whitesmoke;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 .keyboard-btns{
     color: white;
     display: flex;
     justify-content: center;
-    /* align-items: flex-start; */
     gap: 5px;
     /* flex-direction: row; */
     /* align-content: center; */
@@ -27,8 +27,8 @@ h1 {
     border: 1px solid white;
     color: white ;
     border-radius: 100%;
-    width: 7dvh;
-    height: 8dvh;
+    width: 6dvh;
+    height: 6dvh;
 
 }
 
@@ -46,3 +46,22 @@ h1 {
     list-style: none;
     justify-content: center;
 }
+
+.images {
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 200px;
+width: 100%;
+margin: 0 auto;
+}
+.images img {
+    width: 100%;
+    height: auto;
+    justify-content: block;
+    margin-bottom: 20px;
+}
+.removeImage {
+    display: none;
+}
+
