@@ -74,32 +74,38 @@ function createWordOutput() {
 
     lettersBtns.forEach(function (button) {
         button.addEventListener('click', function (event) {
+
+            let foundLetter = false
+
             for (let i = 0; i < secretWordLettersArray.length; i++) {
                 if (event.target.textContent === secretWordLettersArray[i]) {
 
-                    // if the letter is correct and not in the "gussed word list at that specific index it will add it their"
-                    // where div element id is the same as the pushed letter (for example div id [1] === seceretWord [1] ... it should at the seceret word at 1 at the same place )
                     const pEl = document.createElement('p')
                     pEl.textContent = event.target.textContent
                     divsContainerEls[i].appendChild(pEl)
-                    // here, the logic already prevent the user from inserting a wrong letter, so any inserted letter is correct, all of the inserted letters are added to the gussedWord array, without any index arrangment, however, since all the inserted letters are 100% correct this means the length of the gussedWord will be = to the length of the seceret word, so if the length is equal I can know that the user have placed all the correct letters
                     gussedWord.push(event.target.textContent)
                     console.log(`gussedWord ${gussedWord.length}`)
                     console.log(`secert length ${secretWordLettersArray.length}`)
                     const DisableButton = event.target
                     DisableButton.disabled = true
+
+                    foundLetter = true
                     winCheck()
 
 
-                } else if (event.target.textContent !== secretWordLettersArray[i]) {
+                } 
+
+            } if (foundLetter === false && lives>0) {
+                    lives--
                     console.log(lives)
                     DisableButton = event.target
                     DisableButton.disabled = true
-                    // lives--
+                    
 
+                } else if (lives === 0) {        
+                    console.log('You Lose!')
+                    //disable all buttons and make them red
                 }
-
-            }
         })
     })
 
@@ -109,8 +115,7 @@ function winCheck() {
 
     if (gussedWord.length === secretWordLettersArray.length) {
         console.log('You Won!')
-
-    }
+    } 
 }
 function reset() {
     console.log('HELLPW')
@@ -154,18 +159,22 @@ console.log('This is secret word ----- ' + secretWord)
 
 // =============================== MAIN CODE EXPLAINED:  =====================================
 // seprateSeceretLetters function 
-// seprateSeceretLetters function is used to seperate the full random word and it saves each letter in it
+    // seprateSeceretLetters function is used to seperate the full random word and it saves each letter in it
 
 // randomWord function
-// The randomWord function is simply picking one random words from the array list,
-// which will be usefuel if I decided to use multiple types of lists,
-// e.g. food list, cars, countries, etc.
-// Where I only need to add the list name
-// and the function will give me a random item from the list,
-// which is a word
-// the randomIndex variables saves a radnom index, which will be used to pick a random number for the word's list
-// after generating the random number and saving it inside "randomIndex" variable we are just using it with the array to pick a random word
-// it is like we are typing wordList[0] (for example the result is "Mango"), instead of a fixed number now the random function will change this to different numbers for example (wordList[2], which will give "banana")
+    // The randomWord function is simply picking one random words from the array list,
+    // which will be usefuel if I decided to use multiple types of lists,
+    // e.g. food list, cars, countries, etc.
+    // Where I only need to add the list name
+    // and the function will give me a random item from the list,
+    // which is a word
+    // the randomIndex variables saves a radnom index, which will be used to pick a random number for the word's list
+    // after generating the random number and saving it inside "randomIndex" variable we are just using it with the array to pick a random word
+    // it is like we are typing wordList[0] (for example the result is "Mango"), instead of a fixed number now the random function will change this to different numbers for example (wordList[2], which will give "banana")
+
+// winCheck function 
+    // here, the logic already prevent the user from inserting a wrong letter, so any inserted letter is correct, all of the inserted letters are added to the gussedWord array, without any index arrangment, however, since all the inserted letters are 100% correct this means the length of the gussedWord will be = to the length of the seceret word, so if the length is equal I can know that the user have placed all the correct letters
+
 
 // ==========================================================================================
 
