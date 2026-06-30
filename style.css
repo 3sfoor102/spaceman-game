@@ -69,12 +69,30 @@ margin: 0 auto;
  
 }
 .images img {
-    width: 100%;
+    width: 120%;
     height: auto;
     justify-content: block;
     margin-bottom: 100px;   
+}
+.images :hover {
+    width: 170%;
+    height: auto;
+    justify-content: block;
 }
 .removeImage {
     display: none;
 }
 
+:disabled {
+    background-color: red;
+}
+:disabled:hover {
+    background-color: red;
+}
+
+.output-dashes, .output-letters{
+    color: white;
+}
+.output-dashes {
+    padding: 25px;
+}
