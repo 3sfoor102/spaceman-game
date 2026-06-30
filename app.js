@@ -1,6 +1,6 @@
 /*-------------------------------- Pseudocode --------------------------------*/
 // Comparing Words Logic 
-    // Each letter should be placed at the same location of its location in the original array
+    // Each letter should be placed at the same location of its original location in the secretWordLettersArray
     // If the letter is 'l', and the seceretWord is  apple, the letter should
     // be placed at index 3, and it showed be shown at index 3 in the screen
 
@@ -31,8 +31,7 @@ const ulDashesEl = document.querySelector('.output-dashes')
 const ulLettersEl = document.querySelector('.output-letters')
 const liEls = document.createElement('li')
 const imgEls = document.querySelector('.images')
-const divEl = document.querySelector('div')
-
+const divsContainerEl = document.querySelector('.divs-container')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -53,8 +52,11 @@ function seprateSeceretLetters() {
     }
 
 function createWordOutput () {
+    seprateSeceretLetters()
     for (let i = 0; i < secretWordLettersArray.length; i++) {
-        ulDashesEl.append(liEls.textContent = '___ ')
+        const divEl = document.createElement('div')
+        divsContainerEl.appendChild(divEl)
+        divEl.id = [i]
     }
     lettersBtns.forEach(function (button) {
         button.addEventListener('click', function (event) {
@@ -70,8 +72,8 @@ function createWordOutput () {
 }
 
 
+
 // =============================== CONSOLE LOGS AND CALLING FUNCTIONS =====================================
-seprateSeceretLetters() 
 createWordOutput()
 console.log(secretWordLettersArray)
 
@@ -86,10 +88,10 @@ console.log(secretWordLettersArray)
     //         }
     //     }
 
-// Disabling a button
-    // const testDisableButton = document.querySelector('#A')
-    // console.log(testDisableButton)
-    // testDisableButton.disabled = true
+// // Disabling a button
+//     const testDisableButton = document.querySelector('#A')
+//     console.log(testDisableButton)
+//     testDisableButton.disabled = true
 
 // Replacing a class     
     // imgEls.classList.replace('images', 'removeImage')
