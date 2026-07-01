@@ -120,8 +120,15 @@ function createWordOutput() {
 
 
     document.addEventListener('keydown', function(event){
-        console.log('keyboard')
+        const pressedLetter = event.key.toLowerCase();
+        
+        lettersBtns.forEach(function (button) {
+            if(button.textContent.toLowerCase() === pressedLetter && !button.disabled) {
+                button.click()
+            }
+        })
     })
+
 
     lettersBtns.forEach(function (button) {
         button.addEventListener('click', function (event) {
@@ -135,8 +142,11 @@ function createWordOutput() {
                     pEl.textContent = event.target.textContent
                     divsContainerEls[i].appendChild(pEl)
                     gussedWord.push(event.target.textContent)
+
                     console.log(`gussedWord ${gussedWord.length}`)
                     console.log(`secert length ${secretWordLettersArray.length}`)
+
+
                     const DisableButton = event.target
                     DisableButton.disabled = true
 
@@ -148,8 +158,12 @@ function createWordOutput() {
                 currentHangmanImg.src = 'assets/images/hangman-image-0'+lives+'.png'
                     lives--
                     attemptsText.textContent = `${lives} attempts left!`
+
+                    
                     console.log(lives)
-                    DisableButton = event.target
+
+
+                    const DisableButton = event.target
                     DisableButton.disabled = true
                     
 
@@ -158,6 +172,7 @@ function createWordOutput() {
                     for (let i = 0; i < lettersBtns.length; i++) {
                         console.log(lettersBtns[i])
                         lettersBtns[i].disabled = true
+                        lettersBtns[i].style.backgroundColor = 'red'
                         // here add the 
                     }
                     //disable all buttons and make them red
@@ -166,12 +181,11 @@ function createWordOutput() {
     })
 
 }
-console.log(lettersBtns.length)
 function winCheck() {
 
     if (gussedWord.length === secretWordLettersArray.length) {
         console.log('You Won!')
-    } 
+    }
 }
 
 function reset() {
