@@ -92,8 +92,6 @@ let divsContainerEls
 console.log(lettersBtns)
 /*----------------------------- Event Listeners -----------------------------*/
 
-
-
 /*-------------------------------- Functions --------------------------------*/
 function randomWord(listName) {
     let randomIndex = Math.floor(Math.random() * listName.length)
@@ -169,17 +167,20 @@ function winCheck() {
         console.log('You Won!')
     } 
 }
+
 function reset() {
-    // console.log('HELLPW')
-    // secretWord = [randomWord(wordList)]
-    // // it is good
-    // createWordOutput()
-    // console.log(secretWord + ' secret word test in RESET')
-    // secretWordLettersArray = []
-    // winner = false
-    // lives = 6
-window.location.reload();
+    window.location.reload();
 }
+function addAudio(audioName, audioPath) {
+    const audioName = new Audio(audioPath)
+    audioName.volume = .05
+    audioName.play()
+}
+
+console.log(addAudio(backgroundMusic, 'assets/audio/hangman-background-music-audio.mp3'))
+backgroundMusic.loop = true
+
+
 
 // =============================== CONSOLE LOGS AND CALLING FUNCTIONS =====================================
 createWordOutput()
