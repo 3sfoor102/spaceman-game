@@ -22,8 +22,8 @@ font-family: 'VT323', monospace;
 
 #attempts-title {
 color: whitesmoke;  
-font-size: 30px;
-top: 20%;
+font-size: 22px;
+margin-top: 45%;
 }
 
 .keyboard-btns{
@@ -82,7 +82,6 @@ margin: 0 auto;
     width: 100%;
     max-width: 150px;
     height: auto;
-    margin-top: 40px;
 }
 .images :hover {
     height: auto;
@@ -120,5 +119,26 @@ margin: 0 auto;
 }
 .words-spaces p {
     color: white;
+}
+#popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    width: 400px;
+    height: 250px;
+    background-image: url(assets/images/Hangman-texture-background-image.png);
+    background-size: cover;
+    background-position: center;
+
+    border: solid 2px #000000;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.show-popup {
+    display: block;
 }
 

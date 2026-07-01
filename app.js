@@ -86,10 +86,12 @@ const currentHangmanImg = document.querySelector('#hangman-image')
 const divsContainerEl = document.querySelector('.divs-container')
 const resetEl = document.querySelector('#reset-btn')
 const attemptsText = document.querySelector('#attempts-title')
+const popupEl = document.querySelector('#popup-container')
+const popupTitle = document.querySelector('#popup-title')
+const popupParagraph = document.querySelector('#popup-paragraph')
+console.log(popupParagraph)
 let divsContainerEls
 
-
-console.log(lettersBtns)
 /*----------------------------- Event Listeners -----------------------------*/
 
 /*-------------------------------- Functions --------------------------------*/
@@ -155,11 +157,11 @@ function createWordOutput() {
                 } 
 
             } if (foundLetter === false && lives>1) {
-                currentHangmanImg.src = 'assets/images/hangman-image-0'+lives+'.png'
+                currentHangmanImg.src = 'assets/images/hangman-image-0'+(lives-1)+'.png'
                     lives--
                     attemptsText.textContent = `${lives} attempts left!`
 
-                    
+
                     console.log(lives)
 
 
